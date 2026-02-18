@@ -1,0 +1,68 @@
+body {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1f2933 !important;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: black !important;
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+    color: darkgrey !important;
+}
+
+/* Main Title */
+h1 {
+    color: #1f2933;
+    font-weight: 700;
+}
+
+/* Sections */
+.section-box {
+    background: greenyellow;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Buttons */
+.btn-custom {
+    background: #38bdf8;
+    color: white;
+    border-radius: 25px;
+    padding: 8px 18px;
+}
+
+.btn-custom:hover {
+    background: #0284c7;
+}
+
+/* Footer */
+footer {
+    background: #1f2933;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 60px;
+}
+
+.hero p {
+    font-size: 20px;
+}

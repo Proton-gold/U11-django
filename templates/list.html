@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} Lists{% endblock %}
+<br>
+{% block main %}
+    <a href="{% url 'create' %}">
+        <button class="btn btn-group">Create</button>
+    </a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">title</th>
+            <th scope="col">author</th>
+            <th scope="col">price</th>
+            <th scope="col">action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for book in list %}
+            <tr>
+                <th scope="row">{{ book.id }}</th>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.price }} $</td>
+                <td>
+                    <a href="{% url 'delete' book.pk %}">
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                    </a>
+                    <a href="{% url 'update' book.pk %}">
+                        <button class="btn btn-warning">Update</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

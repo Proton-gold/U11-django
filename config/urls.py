@@ -17,6 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from Book.views import home, list_1, list_create, delete_list, list_update
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home, name='home'),
+    path('list/', list_1, name='list'),
+    path('create/', list_create, name='create'),
+    path('delete/<int:pk>', delete_list, name='delete'),
+    path('update/<int:pk>',list_update, name='update'),
+
+
 ]
