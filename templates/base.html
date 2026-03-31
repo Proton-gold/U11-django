@@ -51,6 +51,16 @@
                 <li class="nav-item">
                 </li>
             </ul>
+            {% if request.user.is_authenticated %}
+                <form action="{% url 'accounts:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button class="btn btn-danger">Logout</button>
+                </form>
+            {% else %}
+                <button class="d-flex left"><a class="nav-link active" href="{% url 'accounts:login' %}">login</a>
+                <button class="d-flex left"><a class="nav-link active" href="{% url 'accounts:register' %}">register</a>
+                </button>
+            {% endif %}
             <form class="d-flex" method="get">
                 <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search"
                        value="{% if  search %}{{ search }}{% endif %}">
@@ -64,13 +74,13 @@
 {% block main %}
     <main>
         <div class="section-box">
-            <h2>О сайте</h2>
-            <p>Это простая главная страница, сделанная на HTML и CSS.</p>
+            <h2>About</h2>
+            <p>It 's usually website about books.</p>
         </div>
 
         <div class="section-box">
-            <h2>Что дальше?</h2>
-            <p>Можно добавить JavaScript, формы, анимации или подключить backend.</p>
+            <h2>In our imagination, these books may differ from the ones we created.</h2>
+            <p>We use HTML for fronted our site.</p>
         </div>
     </main>
 {% endblock %}
@@ -85,23 +95,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
-        {% if book.has_Previous %}
-            <li class="page-item"><a class="page-link" href="?page={{ book.previous_page_number }}">Previous</a></li>
-        {% endif %}
-    {% for p in books.paginator %}
-        {% if p.number == books.number %}
-             <li class="page-item active" aria-current="page">
-                 <a class="page-link" href="#">1</a></li>
-            {% endif %}
-    {% endfor %}
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-</nav>
 </body>
 </html>

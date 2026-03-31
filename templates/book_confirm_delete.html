@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h2>Delete book</h2>
+        <p>Вы уверены, что хотите удалить <strong>{{ bookobject.pk }}</strong>?</p>
+
+        <form method="post" action="{% url 'book-delete' object.pk %}">
+            {% csrf_token %}
+            <button type=" submit">yes,delete</button>
+            <a href="{% url 'list' %}">back</a>
+        </form>
+    </div>
+{% endblock %}
