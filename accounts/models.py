@@ -30,7 +30,7 @@ class User(AbstractUser):
 
 class Card(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False, verbose_name="uuid")
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name="cards")
     card_number = models.CharField(max_length=255, null=True, blank=True)
     card_expiration_date = models.DateField(null=True, blank=True)
     amount = models.PositiveIntegerField(default=0)

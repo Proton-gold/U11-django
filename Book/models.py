@@ -10,7 +10,11 @@ class Book(models.Model):
     class Meta:
         db_table = 'book'
 
-# Create your models here.
 
+class Order(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=2)
+    created_at = models.DateTimeField(auto_now_add=True)
 
-
+    class Meta:
+        db_table = 'order'
