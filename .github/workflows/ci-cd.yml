@@ -76,7 +76,7 @@ jobs:
     if: github.event_name == 'push'              # PR'da push qilmaydi
 
     steps:
-      - name: 📥 Kodni checkout qilish
+      - name: Checkout code
         uses: actions/checkout@v4
 
       # Docker Hub'ga login (sirlar Settings > Secrets'da saqlanadi)
@@ -87,7 +87,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       # Image build qilib, Docker Hub'ga push qilish
-      - name: 🏗️ Build & Push image
+      - name:  Build & Push image
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -107,7 +107,7 @@ jobs:
     if: github.event_name == 'push'
 
     steps:
-      - name: 🔑 SSH orqali serverga ulanib, deploy qilish
+      - name: SSH
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SERVER_HOST }}      # server IP/domen
@@ -115,7 +115,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}    # ssh private key
           port: 22
           script: |
-            cd ~/u11_django_devops              # serverdagi loyiha papkasi
+            cd ~/U11_django_devops              # serverdagi loyiha papkasi
             sudo docker compose pull                 # yangi image'ni tort
             sudo docker compose up -d                # qayta ishga tushir
             sudo docker image prune -f               # eski image'larni tozala
