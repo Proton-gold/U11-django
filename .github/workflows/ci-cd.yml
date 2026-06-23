@@ -116,6 +116,7 @@ jobs:
           port: 22
           script: |
             cd /home/sultonovshoxrux98/U11-django_devops      # serverdagi loyiha papkasi
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/u11_django:latest
             sudo docker compose pull                 # yangi image'ni tort
             sudo docker compose up -d                # qayta ishga tushir
             sudo docker image prune -f               # eski image'larni tozala
