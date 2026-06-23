@@ -115,7 +115,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}    # ssh private key
           port: 22
           script: |
-            cd ~/U11_django_devops              # serverdagi loyiha papkasi
+            cd ~/home/sultonovshoxrux98/U11_django_devops         # serverdagi loyiha papkasi
             sudo docker compose pull                 # yangi image'ni tort
             sudo docker compose up -d                # qayta ishga tushir
             sudo docker image prune -f               # eski image'larni tozala
